@@ -705,12 +705,12 @@ namespace ExMod
                     int colCount = sheet.Dimension.End.Column;
                     int rowCount = sheet.Dimension.End.Row;
 
-                    string strAddress;
+                    string strAddress, strData;
                     string str;
                     for (int i = 1; i <= rowCount; i++)
                     {
                         strAddress = "";
-                        str = "";
+                        strData = "";
                         for (int j = 1; j <= colCount; j++)
                         {
                             if (sheet.Cells[i, j].Value != null)
@@ -721,16 +721,21 @@ namespace ExMod
                                 }
                                 else
                                 {
-                                    str += sheet.Cells[i, j].Value.ToString();
+                                    str = sheet.Cells[i, j].Value.ToString();
+                                    if (str.Length % 2 > 0) //一行内数据位数格式化为偶数位，即字节数据
+                                    {
+                                        str = "0" + str;
+                                    }
+                                    strData += str;
                                 }
                             }
                         }
                         if (strAddress.Length > 0) //如果第一列单元格中有数据
                         {
                             ltStrAddress.Add(strAddress);
-                            if (str != "")
+                            if (strData != "")
                             {
-                                ltStr.Add(str);
+                                ltStr.Add(strData);
                             }
                         }
                     }
@@ -755,30 +760,29 @@ namespace ExMod
 
             //StreamReader sr = new StreamReader(fs, Encoding.UTF8);
             StreamReader sr = new StreamReader(fs, encoding);
-            string strLine = "";
-            string str = "";
+            string strLine = "", str = "";
+            string strData = "";
             string strAddress = "";
             while ((strLine = sr.ReadLine()) != null)
             {
-                if (strLine.IndexOf(",") >= 0)
+                var arrStr = strLine.Split(',');
+                if (arrStr.Length > 0)
                 {
-                    strAddress = strLine.Substring(0, strLine.IndexOf(",")); //第1个逗号之前保存为寄存器地址
+                    strAddress = arrStr[0];
                 }
-                else
+                if (arrStr.Length > 1)
                 {
-                    strAddress = strLine; //如果没有逗号，即此行只有1列，也保存为寄存器地址
-                }
-                if (strAddress.Length > 0) //如果有数据
-                {
-                    ltStrAddress.Add(strAddress);
-                    if (strLine.IndexOf(",") >= 0)
+                    for (int i = 1; i < arrStr.Length; i++)
                     {
-                        str = strLine.Substring(strLine.IndexOf(",") + 1, (strLine.Length - strLine.IndexOf(",") - 1)); //第1个逗号之后全部保存为数据
-                        str = str.Replace(",", "");
-                        if (str != "")
+                        if (arrStr[i].Length % 2 > 0) //一行内数据位数格式化为偶数位，即字节数据
                         {
-                            ltStr.Add(str);
+                            arrStr[i] = "0" + arrStr[i];
                         }
+                        strData += arrStr[i];
+                    }
+                    if (strData != "")
+                    {
+                        ltStr.Add(strData);
                     }
                 }
             }

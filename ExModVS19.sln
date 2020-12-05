@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExMod", "ExMod\ExModVS19.csproj", "{B08E693A-B128-4478-8398-3214D8E25D22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B08E693A-B128-4478-8398-3214D8E25D22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B08E693A-B128-4478-8398-3214D8E25D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B08E693A-B128-4478-8398-3214D8E25D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B08E693A-B128-4478-8398-3214D8E25D22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A266BFF-997B-4399-A278-45E76DB38638}
+	EndGlobalSection
+EndGlobal
