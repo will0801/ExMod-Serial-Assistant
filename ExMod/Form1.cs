@@ -722,7 +722,8 @@ namespace ExMod
                                 else
                                 {
                                     str = sheet.Cells[i, j].Value.ToString();
-                                    if (str.Length % 2 > 0) //一行内数据位数格式化为偶数位，即字节数据
+                                    str = str.Replace(" ", "");
+                                    if (str.Length % 2 > 0) //单元格内数据位数格式化为偶数位，即字节数据
                                     {
                                         str = "0" + str;
                                     }
@@ -769,12 +770,16 @@ namespace ExMod
                 if (arrStr.Length > 0)
                 {
                     strAddress = arrStr[0];
+                    ltStrAddress.Add(strAddress);
                 }
+
+                strData = "";
                 if (arrStr.Length > 1)
                 {
                     for (int i = 1; i < arrStr.Length; i++)
                     {
-                        if (arrStr[i].Length % 2 > 0) //一行内数据位数格式化为偶数位，即字节数据
+                        arrStr[i]=arrStr[i].Replace(" ", "");
+                        if (arrStr[i].Length % 2 > 0) //一组内数据位数格式化为偶数位，即字节数据
                         {
                             arrStr[i] = "0" + arrStr[i];
                         }
