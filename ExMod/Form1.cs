@@ -792,6 +792,8 @@ namespace ExMod
                 }
             }
             FileOpened = filePath;
+            sr.Close();
+            fs.Close();
         }
         /// 给定文件的路径，读取文件的二进制数据，判断文件的编码类型
         /// <param name="FILE_NAME">文件路径</param>
