@@ -91,6 +91,14 @@
             this.chkReceived = new System.Windows.Forms.CheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnSend = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtHead = new System.Windows.Forms.TextBox();
+            this.txtTail = new System.Windows.Forms.TextBox();
+            this.rdoSum = new System.Windows.Forms.RadioButton();
+            this.chkLen = new System.Windows.Forms.CheckBox();
+            this.rdoNull = new System.Windows.Forms.RadioButton();
+            this.rdoCRC = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // btnReadInputRegister
@@ -681,11 +689,90 @@
             this.btnSend.Visible = false;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(31, 532);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 12);
+            this.label4.TabIndex = 73;
+            this.label4.Text = "Head:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(131, 532);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 12);
+            this.label5.TabIndex = 73;
+            this.label5.Text = "Tail:";
+            // 
+            // txtHead
+            // 
+            this.txtHead.Location = new System.Drawing.Point(67, 529);
+            this.txtHead.Name = "txtHead";
+            this.txtHead.Size = new System.Drawing.Size(57, 21);
+            this.txtHead.TabIndex = 85;
+            // 
+            // txtTail
+            // 
+            this.txtTail.Location = new System.Drawing.Point(165, 529);
+            this.txtTail.Name = "txtTail";
+            this.txtTail.Size = new System.Drawing.Size(57, 21);
+            this.txtTail.TabIndex = 86;
+            // 
+            // rdoSum
+            // 
+            this.rdoSum.AutoSize = true;
+            this.rdoSum.Location = new System.Drawing.Point(457, 529);
+            this.rdoSum.Name = "rdoSum";
+            this.rdoSum.Size = new System.Drawing.Size(59, 16);
+            this.rdoSum.TabIndex = 88;
+            this.rdoSum.TabStop = true;
+            this.rdoSum.Text = "校验和";
+            this.rdoSum.UseVisualStyleBackColor = true;
+            // 
+            // chkLen
+            // 
+            this.chkLen.AutoSize = true;
+            this.chkLen.Location = new System.Drawing.Point(236, 531);
+            this.chkLen.Name = "chkLen";
+            this.chkLen.Size = new System.Drawing.Size(72, 16);
+            this.chkLen.TabIndex = 87;
+            this.chkLen.Text = "字节长度";
+            this.chkLen.UseVisualStyleBackColor = true;
+            // 
+            // rdoNull
+            // 
+            this.rdoNull.AutoSize = true;
+            this.rdoNull.Location = new System.Drawing.Point(333, 530);
+            this.rdoNull.Name = "rdoNull";
+            this.rdoNull.Size = new System.Drawing.Size(59, 16);
+            this.rdoNull.TabIndex = 89;
+            this.rdoNull.TabStop = true;
+            this.rdoNull.Text = "无校验";
+            this.rdoNull.UseVisualStyleBackColor = true;
+            // 
+            // rdoCRC
+            // 
+            this.rdoCRC.AutoSize = true;
+            this.rdoCRC.Location = new System.Drawing.Point(399, 530);
+            this.rdoCRC.Name = "rdoCRC";
+            this.rdoCRC.Size = new System.Drawing.Size(41, 16);
+            this.rdoCRC.TabIndex = 88;
+            this.rdoCRC.TabStop = true;
+            this.rdoCRC.Text = "CRC";
+            this.rdoCRC.UseVisualStyleBackColor = true;
+            // 
             // FrmMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 537);
+            this.ClientSize = new System.Drawing.Size(767, 573);
+            this.Controls.Add(this.chkLen);
+            this.Controls.Add(this.rdoNull);
+            this.Controls.Add(this.rdoCRC);
+            this.Controls.Add(this.rdoSum);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.chkReceived);
@@ -705,14 +792,18 @@
             this.Controls.Add(this.txtRegAddr);
             this.Controls.Add(this.txtDelay);
             this.Controls.Add(this.label15);
+            this.Controls.Add(this.txtTail);
             this.Controls.Add(this.txtTo);
             this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtHead);
             this.Controls.Add(this.txtCurLine);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtFrom);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.lblCurLine);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCRC);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnCRC);
@@ -821,6 +912,14 @@
         private System.Windows.Forms.CheckBox chkReceived;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtHead;
+        private System.Windows.Forms.TextBox txtTail;
+        private System.Windows.Forms.RadioButton rdoSum;
+        private System.Windows.Forms.CheckBox chkLen;
+        private System.Windows.Forms.RadioButton rdoNull;
+        private System.Windows.Forms.RadioButton rdoCRC;
     }
 }
 

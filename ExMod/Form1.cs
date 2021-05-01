@@ -16,6 +16,12 @@ using System.Threading;
 
 namespace ExMod
 {
+    public enum DATACHECK
+    {
+        Null,
+        CRC,
+        Sum
+    }
     public partial class FrmMaster : Form
     {
         byte slaveID;
@@ -26,6 +32,11 @@ namespace ExMod
         List<string> ltStr;
         bool bShowReceived = true;
         bool bShowSend = true;
+        bool _hasHead = false; //是否添加数据头
+        bool _hasTail = false; //是否添加数据尾
+        Byte[] arrHead = new Byte[] { };
+        Byte[] arrTail = new Byte[] { };
+        DATACHECK dtChk;
 
         public FrmMaster()
         {
@@ -58,6 +69,7 @@ namespace ExMod
             ModbusTool.serialPort.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(comDataReceived);
             chkReceived.Checked = true;
             chkSend.Checked = true;
+            rdoNull.Checked = true;
         }
 
         private void btnOpen_Click(object sender, EventArgs e)
@@ -360,19 +372,51 @@ namespace ExMod
         /// </summary>
         /// <param name="HexStr"></param>
         /// <returns></returns>
-        private byte[] StrToHexByte(string HexStr)
+        private byte[] StrToHexByte(string HexStr, bool hasHead = false, bool hasTail = false, bool hasLen = false, DATACHECK chk=DATACHECK.Null)
         {
             HexStr = HexStr.Replace(" ", "");
             if (HexStr.Length % 2 != 0)
             {
                 HexStr = "0" + HexStr;
             }
-            byte[] bytes = new byte[(HexStr.Length) / 2];
-            for (int i = 0; i < (HexStr.Length) / 2; i++)
+            int nLen = (HexStr.Length) / 2;
+            byte[] arrData = new byte[nLen];
+
+            int ckSum = 0;
+            byte[] arrChk1 = new byte[1];
+            byte[] arrChk2 = new byte[2];
+            for (int i = 0; i < nLen; i++)
             {
-                bytes[i] = Convert.ToByte(HexStr.Substring(2 * i, 2), 16);
+                arrData[i] = Convert.ToByte(HexStr.Substring(2 * i, 2), 16);
+                ckSum = (ckSum + arrData[i]) % 0xffff;
             }
-            return bytes;
+            byte[] arr = new byte[] { };
+            if (hasLen)
+            {
+                byte[] arrLen = new byte[1] { (byte)(nLen) };
+                arr = arr.Concat(arrLen).ToArray();
+                ckSum += nLen; //校验和包括数据长度字节
+            }
+            arr = arr.Concat(arrData).ToArray();
+            if (chk == DATACHECK.CRC)
+            {
+                arrChk2 = BytesCheck.GetCRC16(arr, true);
+                arr = arr.Concat(arrChk2).ToArray();
+            }
+            if (chk == DATACHECK.Sum)
+            {
+                arrChk1[0] = (byte)(ckSum & 0xff);
+                arr = arr.Concat(arrChk1).ToArray();
+            }
+            if (hasHead)
+            {
+                arr = arrHead.Concat(arr).ToArray();
+            }
+            if (hasTail)
+            {
+                arr = arr.Concat(arrTail).ToArray();
+            }
+            return arr;
         }
 
         /// <summary>
@@ -465,6 +509,41 @@ namespace ExMod
                 int.TryParse(txtDelay.Text, out nDelay);
                 int.TryParse(txtFrom.Text, out nFrom);
                 int.TryParse(txtTo.Text, out nTo);
+                if (string.IsNullOrEmpty(txtHead.Text.Trim()))
+                {
+                    _hasHead = false;
+                    Array.Resize(ref arrHead, 0);
+                }
+                else
+                {
+                    _hasHead = true;
+                    arrHead = StrToHexByte(txtHead.Text.Trim());
+                }
+
+                if (string.IsNullOrEmpty(txtTail.Text.Trim()))
+                {
+                    _hasTail = false;
+                    Array.Resize(ref arrTail, 0);
+                }
+                else
+                {
+                    _hasTail = true;
+                    arrTail = StrToHexByte(txtTail.Text.Trim());
+                }
+
+                if (rdoSum.Checked)
+                {
+                    dtChk = DATACHECK.Sum;
+                }
+                else if (rdoCRC.Checked)
+                {
+                    dtChk = DATACHECK.CRC;
+                }
+                else
+                {
+                    dtChk = DATACHECK.Null;
+                }
+
                 if (bModbus && !bWithAddr)
                 {
                     try
@@ -628,13 +707,13 @@ namespace ExMod
                     byte[] arr = null;
                     try
                     {
-                        arr = StrToHexByte(data);
+                        arr = StrToHexByte(data, _hasHead, _hasTail, chkLen.Checked, dtChk);
                     }
                     catch (Exception)
                     {
                         return 1;
                     }
-                    if (data.Length > 0)
+                    if (arr.Length > 0)
                     {
                         ModbusTool.SendAny(arr, 0, arr.Length);
                         if (txtSend.Text.Length > 1000000)
@@ -643,7 +722,8 @@ namespace ExMod
                         }
                         if (bShowSend)
                         {
-                            txtSend.AppendText(data + "\r\n");
+                            string strSend = byteToHexStr(arr);
+                            txtSend.AppendText(strSend + Environment.NewLine);
                             txtSend.ScrollToCaret();
                         }
                     }
@@ -778,7 +858,7 @@ namespace ExMod
                 {
                     for (int i = 1; i < arrStr.Length; i++)
                     {
-                        arrStr[i]=arrStr[i].Replace(" ", "");
+                        arrStr[i] = arrStr[i].Replace(" ", "");
                         if (arrStr[i].Length % 2 > 0) //一组内数据位数格式化为偶数位，即字节数据
                         {
                             arrStr[i] = "0" + arrStr[i];
