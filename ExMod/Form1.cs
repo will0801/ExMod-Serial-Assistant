@@ -372,7 +372,7 @@ namespace ExMod
         /// </summary>
         /// <param name="HexStr"></param>
         /// <returns></returns>
-        private byte[] StrToHexByte(string HexStr, bool hasHead = false, bool hasTail = false, bool hasLen = false, DATACHECK chk=DATACHECK.Null)
+        private byte[] StrToHexByte(string HexStr, bool hasHead = false, bool hasTail = false, bool hasLen = false, DATACHECK chk = DATACHECK.Null)
         {
             HexStr = HexStr.Replace(" ", "");
             if (HexStr.Length % 2 != 0)
@@ -582,6 +582,10 @@ namespace ExMod
                             MessageBox.Show("地址非16进制格式!");
                             return;
                         }
+                        else if (nRet == 3) //指定行无数据
+                        {
+                            break;
+                        }
                         Thread.Sleep(nDelay);
                         Application.DoEvents();
                     }
@@ -620,13 +624,14 @@ namespace ExMod
         //发送一行数据，一行内容中包括地址和数据，如果不选择“第一列为地址”，则地址也作为数据发送
         private int SendLine(int nLineId, bool bModbus, bool bWithAddress, bool bHex)
         {
+            if (ltStr.Count < nLineId) //指定行无数据
+            {
+                return 3;
+            }
             string address = ltStrAddress[nLineId - 1].Replace(" ", "");
             String str = "";
             String data = "";
-            if (ltStr.Count >= nLineId)
-            {
-                str = ltStr[nLineId - 1].Replace(" ", "");
-            }
+            str = ltStr[nLineId - 1].Replace(" ", "");
             if (bWithAddress)
             {
                 data = str;
@@ -635,6 +640,7 @@ namespace ExMod
             {
                 data = address + str; //如果不选择“第一列为地址”，则地址也作为数据发送
             }
+
             if (bModbus)
             {
                 if (data.Length % 2 != 0)
@@ -814,7 +820,7 @@ namespace ExMod
                         if (strAddress.Length > 0) //如果第一列单元格中有数据
                         {
                             ltStrAddress.Add(strAddress);
-                            if (strData != "")
+                            //if (strData != "") //地址列有数据时数据列允许为空
                             {
                                 ltStr.Add(strData);
                             }
@@ -850,12 +856,12 @@ namespace ExMod
                 if (arrStr.Length > 0)
                 {
                     strAddress = arrStr[0];
+                    if (arrStr[0].Trim().Length < 1)
+                    {
+                        break;
+                    }
                     ltStrAddress.Add(strAddress);
-                }
-
-                strData = "";
-                if (arrStr.Length > 1)
-                {
+                    strData = "";
                     for (int i = 1; i < arrStr.Length; i++)
                     {
                         arrStr[i] = arrStr[i].Replace(" ", "");
@@ -865,7 +871,7 @@ namespace ExMod
                         }
                         strData += arrStr[i];
                     }
-                    if (strData != "")
+                    //if (strData != "") //地址列有数据时数据列允许为空
                     {
                         ltStr.Add(strData);
                     }
