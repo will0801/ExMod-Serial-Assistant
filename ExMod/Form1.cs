@@ -61,7 +61,7 @@ namespace ExMod
 
             cmbBaud.SelectedIndex = 0;
             cmbDataBit.SelectedIndex = 0;
-            cmbParity.SelectedIndex = 1;
+            cmbParity.SelectedIndex = 0;
             cmbStopBit.SelectedIndex = 0;
             chkHEX.Checked = true;
             chkHexShow.Checked = true;
@@ -372,7 +372,7 @@ namespace ExMod
         /// </summary>
         /// <param name="HexStr"></param>
         /// <returns></returns>
-        private byte[] StrToHexByte(string HexStr, bool hasHead = false, bool hasTail = false, bool hasLen = false, DATACHECK chk = DATACHECK.Null)
+        private byte[] StrToHexByte(string HexStr, bool hasHead = false, bool hasTail = false, bool hasLen = false,bool hasLenCheck = false, DATACHECK chk = DATACHECK.Null)
         {
             HexStr = HexStr.Replace(" ", "");
             if (HexStr.Length % 2 != 0)
@@ -388,19 +388,29 @@ namespace ExMod
             for (int i = 0; i < nLen; i++)
             {
                 arrData[i] = Convert.ToByte(HexStr.Substring(2 * i, 2), 16);
-                ckSum = (ckSum + arrData[i]) % 0xffff;
+                ckSum +=  arrData[i];
             }
             byte[] arr = new byte[] { };
             if (hasLen)
             {
                 byte[] arrLen = new byte[1] { (byte)(nLen) };
                 arr = arr.Concat(arrLen).ToArray();
-                ckSum += nLen; //校验和包括数据长度字节
+                if (hasLenCheck) //校验和包括数据长度字节
+                {
+                    ckSum += nLen;
+                }
             }
             arr = arr.Concat(arrData).ToArray();
             if (chk == DATACHECK.CRC)
             {
-                arrChk2 = BytesCheck.GetCRC16(arr, true);
+                if (hasLenCheck) //CRC校验包括数据长度字节
+                {
+                    arrChk2 = BytesCheck.GetCRC16(arr, true);
+                }
+                else
+                {
+                    arrChk2 = BytesCheck.GetCRC16(arrData, true);
+                }
                 arr = arr.Concat(arrChk2).ToArray();
             }
             if (chk == DATACHECK.Sum)
@@ -713,7 +723,7 @@ namespace ExMod
                     byte[] arr = null;
                     try
                     {
-                        arr = StrToHexByte(data, _hasHead, _hasTail, chkLen.Checked, dtChk);
+                        arr = StrToHexByte(data, _hasHead, _hasTail, chkLen.Checked, chkLenCheck.Checked, dtChk);
                     }
                     catch (Exception)
                     {

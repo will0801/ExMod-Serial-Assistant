@@ -99,6 +99,7 @@
             this.chkLen = new System.Windows.Forms.CheckBox();
             this.rdoNull = new System.Windows.Forms.RadioButton();
             this.rdoCRC = new System.Windows.Forms.RadioButton();
+            this.chkLenCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnReadInputRegister
@@ -724,7 +725,7 @@
             // rdoSum
             // 
             this.rdoSum.AutoSize = true;
-            this.rdoSum.Location = new System.Drawing.Point(457, 529);
+            this.rdoSum.Location = new System.Drawing.Point(584, 530);
             this.rdoSum.Name = "rdoSum";
             this.rdoSum.Size = new System.Drawing.Size(59, 16);
             this.rdoSum.TabIndex = 88;
@@ -745,7 +746,7 @@
             // rdoNull
             // 
             this.rdoNull.AutoSize = true;
-            this.rdoNull.Location = new System.Drawing.Point(333, 530);
+            this.rdoNull.Location = new System.Drawing.Point(460, 531);
             this.rdoNull.Name = "rdoNull";
             this.rdoNull.Size = new System.Drawing.Size(59, 16);
             this.rdoNull.TabIndex = 89;
@@ -756,7 +757,7 @@
             // rdoCRC
             // 
             this.rdoCRC.AutoSize = true;
-            this.rdoCRC.Location = new System.Drawing.Point(399, 530);
+            this.rdoCRC.Location = new System.Drawing.Point(526, 531);
             this.rdoCRC.Name = "rdoCRC";
             this.rdoCRC.Size = new System.Drawing.Size(41, 16);
             this.rdoCRC.TabIndex = 88;
@@ -764,11 +765,22 @@
             this.rdoCRC.Text = "CRC";
             this.rdoCRC.UseVisualStyleBackColor = true;
             // 
+            // chkLenCheck
+            // 
+            this.chkLenCheck.AutoSize = true;
+            this.chkLenCheck.Location = new System.Drawing.Point(316, 532);
+            this.chkLenCheck.Name = "chkLenCheck";
+            this.chkLenCheck.Size = new System.Drawing.Size(120, 16);
+            this.chkLenCheck.TabIndex = 87;
+            this.chkLenCheck.Text = "字节长度参与校验";
+            this.chkLenCheck.UseVisualStyleBackColor = true;
+            // 
             // FrmMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(767, 573);
+            this.Controls.Add(this.chkLenCheck);
             this.Controls.Add(this.chkLen);
             this.Controls.Add(this.rdoNull);
             this.Controls.Add(this.rdoCRC);
@@ -920,6 +932,7 @@
         private System.Windows.Forms.CheckBox chkLen;
         private System.Windows.Forms.RadioButton rdoNull;
         private System.Windows.Forms.RadioButton rdoCRC;
+        private System.Windows.Forms.CheckBox chkLenCheck;
     }
 }
 
