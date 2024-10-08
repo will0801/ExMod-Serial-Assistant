@@ -29,16 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMaster));
-            this.btnReadInputRegister = new System.Windows.Forms.Button();
-            this.btnReadHoldingRegister = new System.Windows.Forms.Button();
-            this.txtRead = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtAmount = new System.Windows.Forms.TextBox();
-            this.txtStartAddr = new System.Windows.Forms.TextBox();
-            this.txtDeviceAddr = new System.Windows.Forms.TextBox();
             this.cmbStopBit = new System.Windows.Forms.ComboBox();
             this.cmbParity = new System.Windows.Forms.ComboBox();
             this.cmbDataBit = new System.Windows.Forms.ComboBox();
@@ -51,14 +41,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
-            this.txtWrong = new System.Windows.Forms.TextBox();
-            this.txtWrite = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnWriteRegisters = new System.Windows.Forms.Button();
-            this.btnSetAddress = new System.Windows.Forms.Button();
             this.txtCRC = new System.Windows.Forms.TextBox();
-            this.btnCRC = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtComData = new System.Windows.Forms.TextBox();
             this.btnSendAny = new System.Windows.Forms.Button();
@@ -76,7 +59,6 @@
             this.lnkHelp = new System.Windows.Forms.LinkLabel();
             this.chkModbus = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtDelay = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtRegAddr = new System.Windows.Forms.TextBox();
@@ -89,8 +71,6 @@
             this.txtCurLine = new System.Windows.Forms.TextBox();
             this.chkSend = new System.Windows.Forms.CheckBox();
             this.chkReceived = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnSend = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtHead = new System.Windows.Forms.TextBox();
@@ -100,91 +80,49 @@
             this.rdoNull = new System.Windows.Forms.RadioButton();
             this.rdoCRC = new System.Windows.Forms.RadioButton();
             this.chkLenCheck = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSend = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnReadInputRegister = new System.Windows.Forms.Button();
+            this.btnReadHoldingRegister = new System.Windows.Forms.Button();
+            this.txtRead = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtAmount = new System.Windows.Forms.TextBox();
+            this.txtStartAddr = new System.Windows.Forms.TextBox();
+            this.txtDeviceAddr = new System.Windows.Forms.TextBox();
+            this.btnSetAddress = new System.Windows.Forms.Button();
+            this.txtWrong = new System.Windows.Forms.TextBox();
+            this.txtWrite = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnWriteRegisters = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnReadInputRegister
-            // 
-            this.btnReadInputRegister.Location = new System.Drawing.Point(389, 418);
-            this.btnReadInputRegister.Name = "btnReadInputRegister";
-            this.btnReadInputRegister.Size = new System.Drawing.Size(135, 23);
-            this.btnReadInputRegister.TabIndex = 71;
-            this.btnReadInputRegister.Text = "读取输入寄存器";
-            this.btnReadInputRegister.UseVisualStyleBackColor = true;
-            this.btnReadInputRegister.Click += new System.EventHandler(this.btnReadInputRegister_Click);
-            // 
-            // btnReadHoldingRegister
-            // 
-            this.btnReadHoldingRegister.Location = new System.Drawing.Point(232, 418);
-            this.btnReadHoldingRegister.Name = "btnReadHoldingRegister";
-            this.btnReadHoldingRegister.Size = new System.Drawing.Size(135, 23);
-            this.btnReadHoldingRegister.TabIndex = 70;
-            this.btnReadHoldingRegister.Text = "读取Holding寄存器";
-            this.btnReadHoldingRegister.UseVisualStyleBackColor = true;
-            this.btnReadHoldingRegister.Click += new System.EventHandler(this.btnReadHoldingRegister_Click);
-            // 
-            // txtRead
-            // 
-            this.txtRead.Location = new System.Drawing.Point(110, 327);
-            this.txtRead.Name = "txtRead";
-            this.txtRead.Size = new System.Drawing.Size(605, 21);
-            this.txtRead.TabIndex = 69;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(51, 330);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 12);
-            this.label19.TabIndex = 68;
-            this.label19.Text = "读取内容";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(234, 297);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(29, 12);
-            this.label16.TabIndex = 67;
-            this.label16.Text = "数量";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(51, 297);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(53, 12);
-            this.label17.TabIndex = 66;
-            this.label17.Text = "起始地址";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(440, 297);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(53, 12);
-            this.label18.TabIndex = 65;
-            this.label18.Text = "设备地址";
-            // 
-            // txtAmount
-            // 
-            this.txtAmount.Location = new System.Drawing.Point(269, 294);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(100, 21);
-            this.txtAmount.TabIndex = 64;
-            // 
-            // txtStartAddr
-            // 
-            this.txtStartAddr.Location = new System.Drawing.Point(110, 294);
-            this.txtStartAddr.Name = "txtStartAddr";
-            this.txtStartAddr.Size = new System.Drawing.Size(100, 21);
-            this.txtStartAddr.TabIndex = 63;
-            // 
-            // txtDeviceAddr
-            // 
-            this.txtDeviceAddr.Location = new System.Drawing.Point(499, 294);
-            this.txtDeviceAddr.Name = "txtDeviceAddr";
-            this.txtDeviceAddr.Size = new System.Drawing.Size(58, 21);
-            this.txtDeviceAddr.TabIndex = 62;
             // 
             // cmbStopBit
             // 
@@ -317,82 +255,17 @@
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
-            // txtWrong
-            // 
-            this.txtWrong.Location = new System.Drawing.Point(110, 385);
-            this.txtWrong.Multiline = true;
-            this.txtWrong.Name = "txtWrong";
-            this.txtWrong.Size = new System.Drawing.Size(605, 21);
-            this.txtWrong.TabIndex = 49;
-            // 
-            // txtWrite
-            // 
-            this.txtWrite.Location = new System.Drawing.Point(110, 356);
-            this.txtWrite.Name = "txtWrite";
-            this.txtWrite.Size = new System.Drawing.Size(605, 21);
-            this.txtWrite.TabIndex = 47;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(51, 359);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "写入内容";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 388);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "错误信息";
-            // 
-            // btnWriteRegisters
-            // 
-            this.btnWriteRegisters.Location = new System.Drawing.Point(546, 418);
-            this.btnWriteRegisters.Name = "btnWriteRegisters";
-            this.btnWriteRegisters.Size = new System.Drawing.Size(135, 23);
-            this.btnWriteRegisters.TabIndex = 43;
-            this.btnWriteRegisters.Text = "写入多个寄存器";
-            this.btnWriteRegisters.UseVisualStyleBackColor = true;
-            this.btnWriteRegisters.Click += new System.EventHandler(this.btnWriteRegisters_Click);
-            // 
-            // btnSetAddress
-            // 
-            this.btnSetAddress.Location = new System.Drawing.Point(565, 292);
-            this.btnSetAddress.Margin = new System.Windows.Forms.Padding(5);
-            this.btnSetAddress.Name = "btnSetAddress";
-            this.btnSetAddress.Size = new System.Drawing.Size(94, 23);
-            this.btnSetAddress.TabIndex = 50;
-            this.btnSetAddress.Text = "设置设备地址";
-            this.btnSetAddress.UseVisualStyleBackColor = true;
-            this.btnSetAddress.Click += new System.EventHandler(this.btnSetAddress_Click);
-            // 
             // txtCRC
             // 
-            this.txtCRC.Location = new System.Drawing.Point(470, 252);
+            this.txtCRC.Location = new System.Drawing.Point(569, 255);
             this.txtCRC.Name = "txtCRC";
             this.txtCRC.Size = new System.Drawing.Size(48, 21);
             this.txtCRC.TabIndex = 75;
             // 
-            // btnCRC
-            // 
-            this.btnCRC.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btnCRC.Location = new System.Drawing.Point(649, 250);
-            this.btnCRC.Name = "btnCRC";
-            this.btnCRC.Size = new System.Drawing.Size(92, 23);
-            this.btnCRC.TabIndex = 74;
-            this.btnCRC.Text = "计算CRC并发送";
-            this.btnCRC.UseVisualStyleBackColor = true;
-            this.btnCRC.Click += new System.EventHandler(this.btnCRC_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(402, 255);
+            this.label3.Location = new System.Drawing.Point(501, 258);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 12);
             this.label3.TabIndex = 73;
@@ -400,19 +273,19 @@
             // 
             // txtComData
             // 
-            this.txtComData.Location = new System.Drawing.Point(27, 252);
+            this.txtComData.Location = new System.Drawing.Point(22, 255);
             this.txtComData.Name = "txtComData";
-            this.txtComData.Size = new System.Drawing.Size(361, 21);
+            this.txtComData.Size = new System.Drawing.Size(470, 21);
             this.txtComData.TabIndex = 72;
             // 
             // btnSendAny
             // 
             this.btnSendAny.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.btnSendAny.Location = new System.Drawing.Point(531, 250);
+            this.btnSendAny.Location = new System.Drawing.Point(644, 253);
             this.btnSendAny.Name = "btnSendAny";
-            this.btnSendAny.Size = new System.Drawing.Size(112, 23);
+            this.btnSendAny.Size = new System.Drawing.Size(98, 23);
             this.btnSendAny.TabIndex = 76;
-            this.btnSendAny.Text = "发送任意串口数据";
+            this.btnSendAny.Text = "发送串口数据";
             this.btnSendAny.UseVisualStyleBackColor = true;
             this.btnSendAny.Click += new System.EventHandler(this.btnSendAny_Click);
             // 
@@ -436,7 +309,7 @@
             // 
             // txtPath
             // 
-            this.txtPath.Location = new System.Drawing.Point(290, 459);
+            this.txtPath.Location = new System.Drawing.Point(290, 297);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(277, 21);
             this.txtPath.TabIndex = 78;
@@ -444,7 +317,7 @@
             // btnSendFile
             // 
             this.btnSendFile.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSendFile.Location = new System.Drawing.Point(575, 457);
+            this.btnSendFile.Location = new System.Drawing.Point(575, 295);
             this.btnSendFile.Margin = new System.Windows.Forms.Padding(5);
             this.btnSendFile.Name = "btnSendFile";
             this.btnSendFile.Size = new System.Drawing.Size(107, 23);
@@ -456,7 +329,7 @@
             // btnBrowse
             // 
             this.btnBrowse.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnBrowse.Location = new System.Drawing.Point(230, 458);
+            this.btnBrowse.Location = new System.Drawing.Point(230, 296);
             this.btnBrowse.Margin = new System.Windows.Forms.Padding(5);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(51, 23);
@@ -468,7 +341,7 @@
             // btnStop
             // 
             this.btnStop.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnStop.Location = new System.Drawing.Point(690, 457);
+            this.btnStop.Location = new System.Drawing.Point(690, 295);
             this.btnStop.Margin = new System.Windows.Forms.Padding(5);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(51, 23);
@@ -480,7 +353,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(137, 493);
+            this.label6.Location = new System.Drawing.Point(137, 331);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 12);
             this.label6.TabIndex = 73;
@@ -488,7 +361,7 @@
             // 
             // txtFrom
             // 
-            this.txtFrom.Location = new System.Drawing.Point(173, 490);
+            this.txtFrom.Location = new System.Drawing.Point(173, 328);
             this.txtFrom.Name = "txtFrom";
             this.txtFrom.Size = new System.Drawing.Size(57, 21);
             this.txtFrom.TabIndex = 75;
@@ -496,7 +369,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(237, 493);
+            this.label12.Location = new System.Drawing.Point(237, 331);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(23, 12);
             this.label12.TabIndex = 73;
@@ -504,7 +377,7 @@
             // 
             // txtTo
             // 
-            this.txtTo.Location = new System.Drawing.Point(259, 490);
+            this.txtTo.Location = new System.Drawing.Point(259, 328);
             this.txtTo.Name = "txtTo";
             this.txtTo.Size = new System.Drawing.Size(57, 21);
             this.txtTo.TabIndex = 75;
@@ -512,7 +385,7 @@
             // chkLine
             // 
             this.chkLine.AutoSize = true;
-            this.chkLine.Location = new System.Drawing.Point(333, 492);
+            this.chkLine.Location = new System.Drawing.Point(333, 330);
             this.chkLine.Name = "chkLine";
             this.chkLine.Size = new System.Drawing.Size(72, 16);
             this.chkLine.TabIndex = 79;
@@ -533,7 +406,7 @@
             // chkModbus
             // 
             this.chkModbus.AutoSize = true;
-            this.chkModbus.Location = new System.Drawing.Point(411, 492);
+            this.chkModbus.Location = new System.Drawing.Point(411, 330);
             this.chkModbus.Name = "chkModbus";
             this.chkModbus.Size = new System.Drawing.Size(84, 16);
             this.chkModbus.TabIndex = 79;
@@ -543,25 +416,15 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(112, 463);
+            this.label13.Location = new System.Drawing.Point(112, 301);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 12);
             this.label13.TabIndex = 73;
             this.label13.Text = "延时";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(25, 423);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(47, 12);
-            this.label14.TabIndex = 73;
-            this.label14.Text = " 功能码";
-            this.label14.Visible = false;
-            // 
             // txtDelay
             // 
-            this.txtDelay.Location = new System.Drawing.Point(147, 460);
+            this.txtDelay.Location = new System.Drawing.Point(147, 298);
             this.txtDelay.Name = "txtDelay";
             this.txtDelay.Size = new System.Drawing.Size(57, 21);
             this.txtDelay.TabIndex = 75;
@@ -569,7 +432,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(614, 493);
+            this.label15.Location = new System.Drawing.Point(614, 331);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(65, 12);
             this.label15.TabIndex = 73;
@@ -577,7 +440,7 @@
             // 
             // txtRegAddr
             // 
-            this.txtRegAddr.Location = new System.Drawing.Point(685, 490);
+            this.txtRegAddr.Location = new System.Drawing.Point(685, 328);
             this.txtRegAddr.Name = "txtRegAddr";
             this.txtRegAddr.Size = new System.Drawing.Size(57, 21);
             this.txtRegAddr.TabIndex = 75;
@@ -585,7 +448,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(205, 462);
+            this.label20.Location = new System.Drawing.Point(205, 300);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(17, 12);
             this.label20.TabIndex = 73;
@@ -594,7 +457,7 @@
             // chkHEX
             // 
             this.chkHEX.AutoSize = true;
-            this.chkHEX.Location = new System.Drawing.Point(27, 462);
+            this.chkHEX.Location = new System.Drawing.Point(27, 300);
             this.chkHEX.Name = "chkHEX";
             this.chkHEX.Size = new System.Drawing.Size(84, 16);
             this.chkHEX.TabIndex = 79;
@@ -604,7 +467,7 @@
             // chkAddressColumn
             // 
             this.chkAddressColumn.AutoSize = true;
-            this.chkAddressColumn.Location = new System.Drawing.Point(501, 492);
+            this.chkAddressColumn.Location = new System.Drawing.Point(501, 330);
             this.chkAddressColumn.Name = "chkAddressColumn";
             this.chkAddressColumn.Size = new System.Drawing.Size(96, 16);
             this.chkAddressColumn.TabIndex = 79;
@@ -634,7 +497,7 @@
             // lblCurLine
             // 
             this.lblCurLine.AutoSize = true;
-            this.lblCurLine.Location = new System.Drawing.Point(25, 493);
+            this.lblCurLine.Location = new System.Drawing.Point(25, 331);
             this.lblCurLine.Name = "lblCurLine";
             this.lblCurLine.Size = new System.Drawing.Size(41, 12);
             this.lblCurLine.TabIndex = 73;
@@ -642,7 +505,7 @@
             // 
             // txtCurLine
             // 
-            this.txtCurLine.Location = new System.Drawing.Point(72, 490);
+            this.txtCurLine.Location = new System.Drawing.Point(72, 328);
             this.txtCurLine.Name = "txtCurLine";
             this.txtCurLine.ReadOnly = true;
             this.txtCurLine.Size = new System.Drawing.Size(57, 21);
@@ -670,30 +533,10 @@
             this.chkReceived.UseVisualStyleBackColor = true;
             this.chkReceived.CheckedChanged += new System.EventHandler(this.chkReceived_CheckedChanged);
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(78, 420);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(63, 20);
-            this.comboBox1.TabIndex = 83;
-            this.comboBox1.Visible = false;
-            // 
-            // btnSend
-            // 
-            this.btnSend.Location = new System.Drawing.Point(147, 418);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(52, 23);
-            this.btnSend.TabIndex = 84;
-            this.btnSend.Text = "发送";
-            this.btnSend.UseVisualStyleBackColor = true;
-            this.btnSend.Visible = false;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 532);
+            this.label4.Location = new System.Drawing.Point(31, 370);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 12);
             this.label4.TabIndex = 73;
@@ -702,7 +545,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(131, 532);
+            this.label5.Location = new System.Drawing.Point(131, 370);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(35, 12);
             this.label5.TabIndex = 73;
@@ -710,14 +553,14 @@
             // 
             // txtHead
             // 
-            this.txtHead.Location = new System.Drawing.Point(67, 529);
+            this.txtHead.Location = new System.Drawing.Point(67, 367);
             this.txtHead.Name = "txtHead";
             this.txtHead.Size = new System.Drawing.Size(57, 21);
             this.txtHead.TabIndex = 85;
             // 
             // txtTail
             // 
-            this.txtTail.Location = new System.Drawing.Point(165, 529);
+            this.txtTail.Location = new System.Drawing.Point(165, 367);
             this.txtTail.Name = "txtTail";
             this.txtTail.Size = new System.Drawing.Size(57, 21);
             this.txtTail.TabIndex = 86;
@@ -725,7 +568,7 @@
             // rdoSum
             // 
             this.rdoSum.AutoSize = true;
-            this.rdoSum.Location = new System.Drawing.Point(584, 530);
+            this.rdoSum.Location = new System.Drawing.Point(584, 368);
             this.rdoSum.Name = "rdoSum";
             this.rdoSum.Size = new System.Drawing.Size(59, 16);
             this.rdoSum.TabIndex = 88;
@@ -736,7 +579,7 @@
             // chkLen
             // 
             this.chkLen.AutoSize = true;
-            this.chkLen.Location = new System.Drawing.Point(236, 531);
+            this.chkLen.Location = new System.Drawing.Point(236, 369);
             this.chkLen.Name = "chkLen";
             this.chkLen.Size = new System.Drawing.Size(72, 16);
             this.chkLen.TabIndex = 87;
@@ -746,7 +589,7 @@
             // rdoNull
             // 
             this.rdoNull.AutoSize = true;
-            this.rdoNull.Location = new System.Drawing.Point(460, 531);
+            this.rdoNull.Location = new System.Drawing.Point(460, 369);
             this.rdoNull.Name = "rdoNull";
             this.rdoNull.Size = new System.Drawing.Size(59, 16);
             this.rdoNull.TabIndex = 89;
@@ -757,7 +600,7 @@
             // rdoCRC
             // 
             this.rdoCRC.AutoSize = true;
-            this.rdoCRC.Location = new System.Drawing.Point(526, 531);
+            this.rdoCRC.Location = new System.Drawing.Point(526, 369);
             this.rdoCRC.Name = "rdoCRC";
             this.rdoCRC.Size = new System.Drawing.Size(41, 16);
             this.rdoCRC.TabIndex = 88;
@@ -768,25 +611,407 @@
             // chkLenCheck
             // 
             this.chkLenCheck.AutoSize = true;
-            this.chkLenCheck.Location = new System.Drawing.Point(316, 532);
+            this.chkLenCheck.Location = new System.Drawing.Point(316, 370);
             this.chkLenCheck.Name = "chkLenCheck";
             this.chkLenCheck.Size = new System.Drawing.Size(120, 16);
             this.chkLenCheck.TabIndex = 87;
             this.chkLenCheck.Text = "字节长度参与校验";
             this.chkLenCheck.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.btnSend);
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.btnReadInputRegister);
+            this.groupBox1.Controls.Add(this.btnReadHoldingRegister);
+            this.groupBox1.Controls.Add(this.txtRead);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.txtAmount);
+            this.groupBox1.Controls.Add(this.txtStartAddr);
+            this.groupBox1.Controls.Add(this.txtDeviceAddr);
+            this.groupBox1.Controls.Add(this.btnSetAddress);
+            this.groupBox1.Controls.Add(this.txtWrong);
+            this.groupBox1.Controls.Add(this.txtWrite);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btnWriteRegisters);
+            this.groupBox1.Location = new System.Drawing.Point(22, 404);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(720, 187);
+            this.groupBox1.TabIndex = 90;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Modbus Rtu Master";
+            // 
+            // btnSend
+            // 
+            this.btnSend.Location = new System.Drawing.Point(129, 154);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(52, 23);
+            this.btnSend.TabIndex = 103;
+            this.btnSend.Text = "发送";
+            this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Visible = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(60, 156);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(63, 20);
+            this.comboBox1.TabIndex = 102;
+            this.comboBox1.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 159);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 12);
+            this.label14.TabIndex = 101;
+            this.label14.Text = " 功能码";
+            this.label14.Visible = false;
+            // 
+            // btnReadInputRegister
+            // 
+            this.btnReadInputRegister.Location = new System.Drawing.Point(371, 154);
+            this.btnReadInputRegister.Name = "btnReadInputRegister";
+            this.btnReadInputRegister.Size = new System.Drawing.Size(135, 23);
+            this.btnReadInputRegister.TabIndex = 100;
+            this.btnReadInputRegister.Text = "读取输入寄存器";
+            this.btnReadInputRegister.UseVisualStyleBackColor = true;
+            // 
+            // btnReadHoldingRegister
+            // 
+            this.btnReadHoldingRegister.Location = new System.Drawing.Point(214, 154);
+            this.btnReadHoldingRegister.Name = "btnReadHoldingRegister";
+            this.btnReadHoldingRegister.Size = new System.Drawing.Size(135, 23);
+            this.btnReadHoldingRegister.TabIndex = 99;
+            this.btnReadHoldingRegister.Text = "读取Holding寄存器";
+            this.btnReadHoldingRegister.UseVisualStyleBackColor = true;
+            // 
+            // txtRead
+            // 
+            this.txtRead.Location = new System.Drawing.Point(92, 63);
+            this.txtRead.Name = "txtRead";
+            this.txtRead.Size = new System.Drawing.Size(605, 21);
+            this.txtRead.TabIndex = 98;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(33, 66);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 12);
+            this.label19.TabIndex = 97;
+            this.label19.Text = "读取内容";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(216, 33);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(29, 12);
+            this.label16.TabIndex = 96;
+            this.label16.Text = "数量";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(33, 33);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 12);
+            this.label17.TabIndex = 95;
+            this.label17.Text = "起始地址";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(422, 33);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(53, 12);
+            this.label18.TabIndex = 94;
+            this.label18.Text = "设备地址";
+            // 
+            // txtAmount
+            // 
+            this.txtAmount.Location = new System.Drawing.Point(251, 30);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(100, 21);
+            this.txtAmount.TabIndex = 93;
+            // 
+            // txtStartAddr
+            // 
+            this.txtStartAddr.Location = new System.Drawing.Point(92, 30);
+            this.txtStartAddr.Name = "txtStartAddr";
+            this.txtStartAddr.Size = new System.Drawing.Size(100, 21);
+            this.txtStartAddr.TabIndex = 92;
+            // 
+            // txtDeviceAddr
+            // 
+            this.txtDeviceAddr.Location = new System.Drawing.Point(481, 30);
+            this.txtDeviceAddr.Name = "txtDeviceAddr";
+            this.txtDeviceAddr.Size = new System.Drawing.Size(58, 21);
+            this.txtDeviceAddr.TabIndex = 91;
+            // 
+            // btnSetAddress
+            // 
+            this.btnSetAddress.Location = new System.Drawing.Point(547, 28);
+            this.btnSetAddress.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSetAddress.Name = "btnSetAddress";
+            this.btnSetAddress.Size = new System.Drawing.Size(94, 23);
+            this.btnSetAddress.TabIndex = 90;
+            this.btnSetAddress.Text = "设置设备地址";
+            this.btnSetAddress.UseVisualStyleBackColor = true;
+            // 
+            // txtWrong
+            // 
+            this.txtWrong.Location = new System.Drawing.Point(92, 121);
+            this.txtWrong.Multiline = true;
+            this.txtWrong.Name = "txtWrong";
+            this.txtWrong.Size = new System.Drawing.Size(605, 21);
+            this.txtWrong.TabIndex = 89;
+            // 
+            // txtWrite
+            // 
+            this.txtWrite.Location = new System.Drawing.Point(92, 92);
+            this.txtWrite.Name = "txtWrite";
+            this.txtWrite.Size = new System.Drawing.Size(605, 21);
+            this.txtWrite.TabIndex = 88;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 87;
+            this.label2.Text = "写入内容";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 124);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 86;
+            this.label1.Text = "错误信息";
+            // 
+            // btnWriteRegisters
+            // 
+            this.btnWriteRegisters.Location = new System.Drawing.Point(528, 154);
+            this.btnWriteRegisters.Name = "btnWriteRegisters";
+            this.btnWriteRegisters.Size = new System.Drawing.Size(135, 23);
+            this.btnWriteRegisters.TabIndex = 85;
+            this.btnWriteRegisters.Text = "写入多个寄存器";
+            this.btnWriteRegisters.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.label22);
+            this.groupBox2.Controls.Add(this.label23);
+            this.groupBox2.Controls.Add(this.label24);
+            this.groupBox2.Controls.Add(this.label25);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.label26);
+            this.groupBox2.Controls.Add(this.label27);
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(720, 187);
+            this.groupBox2.TabIndex = 90;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Modbus Rtu Master";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(129, 154);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(52, 23);
+            this.button1.TabIndex = 103;
+            this.button1.Text = "发送";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(60, 156);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(63, 20);
+            this.comboBox2.TabIndex = 102;
+            this.comboBox2.Visible = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(7, 159);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(47, 12);
+            this.label21.TabIndex = 101;
+            this.label21.Text = " 功能码";
+            this.label21.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(371, 154);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(135, 23);
+            this.button2.TabIndex = 100;
+            this.button2.Text = "读取输入寄存器";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(214, 154);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(135, 23);
+            this.button3.TabIndex = 99;
+            this.button3.Text = "读取Holding寄存器";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(87, 63);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(605, 21);
+            this.textBox1.TabIndex = 98;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(28, 66);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(53, 12);
+            this.label22.TabIndex = 97;
+            this.label22.Text = "读取内容";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(211, 33);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(29, 12);
+            this.label23.TabIndex = 96;
+            this.label23.Text = "数量";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(28, 33);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(53, 12);
+            this.label24.TabIndex = 95;
+            this.label24.Text = "起始地址";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(417, 33);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(53, 12);
+            this.label25.TabIndex = 94;
+            this.label25.Text = "设备地址";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(246, 30);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.TabIndex = 93;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(87, 30);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 21);
+            this.textBox3.TabIndex = 92;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(476, 30);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(58, 21);
+            this.textBox4.TabIndex = 91;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(542, 28);
+            this.button4.Margin = new System.Windows.Forms.Padding(5);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 23);
+            this.button4.TabIndex = 90;
+            this.button4.Text = "设置设备地址";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(87, 121);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(605, 21);
+            this.textBox5.TabIndex = 89;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(87, 92);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(605, 21);
+            this.textBox6.TabIndex = 88;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(28, 95);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(53, 12);
+            this.label26.TabIndex = 87;
+            this.label26.Text = "写入内容";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(28, 124);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(53, 12);
+            this.label27.TabIndex = 86;
+            this.label27.Text = "错误信息";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(528, 154);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(135, 23);
+            this.button5.TabIndex = 85;
+            this.button5.Text = "写入多个寄存器";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // FrmMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 573);
+            this.ClientSize = new System.Drawing.Size(767, 603);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkLenCheck);
             this.Controls.Add(this.chkLen);
             this.Controls.Add(this.rdoNull);
             this.Controls.Add(this.rdoCRC);
             this.Controls.Add(this.rdoSum);
-            this.Controls.Add(this.btnSend);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.chkReceived);
             this.Controls.Add(this.chkSend);
             this.Controls.Add(this.btnClear);
@@ -806,7 +1031,6 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.txtTail);
             this.Controls.Add(this.txtTo);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.txtHead);
             this.Controls.Add(this.txtCurLine);
             this.Controls.Add(this.label5);
@@ -818,21 +1042,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtCRC);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnCRC);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtComData);
-            this.Controls.Add(this.btnReadInputRegister);
-            this.Controls.Add(this.btnReadHoldingRegister);
-            this.Controls.Add(this.txtRead);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.txtSend);
             this.Controls.Add(this.txtReceived);
-            this.Controls.Add(this.txtStartAddr);
-            this.Controls.Add(this.txtDeviceAddr);
             this.Controls.Add(this.cmbStopBit);
             this.Controls.Add(this.cmbParity);
             this.Controls.Add(this.cmbDataBit);
@@ -844,34 +1057,21 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnSetAddress);
             this.Controls.Add(this.btnOpen);
-            this.Controls.Add(this.txtWrong);
-            this.Controls.Add(this.txtWrite);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnWriteRegisters);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMaster";
             this.Text = "ExMod Serial Assistant";
             this.Load += new System.EventHandler(this.FrmMaster_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnReadInputRegister;
-        private System.Windows.Forms.Button btnReadHoldingRegister;
-        private System.Windows.Forms.TextBox txtRead;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox txtAmount;
-        private System.Windows.Forms.TextBox txtStartAddr;
-        private System.Windows.Forms.TextBox txtDeviceAddr;
         private System.Windows.Forms.ComboBox cmbStopBit;
         private System.Windows.Forms.ComboBox cmbParity;
         private System.Windows.Forms.ComboBox cmbDataBit;
@@ -884,14 +1084,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.TextBox txtWrong;
-        private System.Windows.Forms.TextBox txtWrite;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnWriteRegisters;
-        private System.Windows.Forms.Button btnSetAddress;
         private System.Windows.Forms.TextBox txtCRC;
-        private System.Windows.Forms.Button btnCRC;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtComData;
         private System.Windows.Forms.Button btnSendAny;
@@ -909,7 +1102,6 @@
         private System.Windows.Forms.LinkLabel lnkHelp;
         private System.Windows.Forms.CheckBox chkModbus;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtDelay;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtRegAddr;
@@ -922,8 +1114,6 @@
         private System.Windows.Forms.TextBox txtCurLine;
         private System.Windows.Forms.CheckBox chkSend;
         private System.Windows.Forms.CheckBox chkReceived;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button btnSend;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtHead;
@@ -933,6 +1123,46 @@
         private System.Windows.Forms.RadioButton rdoNull;
         private System.Windows.Forms.RadioButton rdoCRC;
         private System.Windows.Forms.CheckBox chkLenCheck;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnReadInputRegister;
+        private System.Windows.Forms.Button btnReadHoldingRegister;
+        private System.Windows.Forms.TextBox txtRead;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtAmount;
+        private System.Windows.Forms.TextBox txtStartAddr;
+        private System.Windows.Forms.TextBox txtDeviceAddr;
+        private System.Windows.Forms.Button btnSetAddress;
+        private System.Windows.Forms.TextBox txtWrong;
+        private System.Windows.Forms.TextBox txtWrite;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnWriteRegisters;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button button5;
     }
 }
 

@@ -36,6 +36,7 @@ namespace ExMod
         bool _hasTail = false; //是否添加数据尾
         Byte[] arrHead = new Byte[] { };
         Byte[] arrTail = new Byte[] { };
+        byte[] arrCRC = new byte[2];
         DATACHECK dtChk;
 
         public FrmMaster()
@@ -296,42 +297,6 @@ namespace ExMod
             }
         }
 
-        private void btnCRC_Click(object sender, EventArgs e)
-        {
-            String str = txtComData.Text.ToString();
-            byte[] arr = null;
-            try
-            {
-                arr = StrToHexByte(str);
-            }
-            catch (Exception)
-            {
-                //txtWrong.Text = "请输入16进制格式数据!";
-                MessageBox.Show("非16进制格式数据!");
-                return;
-            }
-            byte[] crc;
-            crc = BytesCheck.GetCRC16(arr, true);
-            txtCRC.Text = crc[0].ToString("X2") + crc[1].ToString("X2");
-            if (!ModbusTool.bConnect)
-            {
-                MessageBox.Show("请先打开串口!");
-                return;
-            }
-
-            str += txtCRC.Text;
-            byte[] arrCRC = arr.Concat(crc).ToArray(); ;
-            if (arrCRC.Length > 0)
-            {
-                ModbusTool.serialPort.Write(arrCRC, 0, arrCRC.Length);
-                if (bShowSend)
-                {
-                    txtSend.AppendText(str + "\r\n");
-                    txtSend.ScrollToCaret();
-                }
-            }
-        }
-
         private void btnSendAny_Click(object sender, EventArgs e)
         {
             txtWrong.Text = "";
@@ -340,13 +305,54 @@ namespace ExMod
                 MessageBox.Show("请先打开串口!");
                 return;
             }
+
             String str = txtComData.Text.ToString();
             if (chkHEX.Checked)
             {
+                if (string.IsNullOrEmpty(txtHead.Text.Trim()))
+                {
+                    _hasHead = false;
+                    Array.Resize(ref arrHead, 0);
+                }
+                else
+                {
+                    _hasHead = true;
+                    arrHead = StrToHexByte(txtHead.Text.Trim());
+                }
+
+                if (string.IsNullOrEmpty(txtTail.Text.Trim()))
+                {
+                    _hasTail = false;
+                    Array.Resize(ref arrTail, 0);
+                }
+                else
+                {
+                    _hasTail = true;
+                    arrTail = StrToHexByte(txtTail.Text.Trim());
+                }
+
+                if (rdoSum.Checked)
+                {
+                    dtChk = DATACHECK.Sum;
+                }
+                else if (rdoCRC.Checked)
+                {
+                    dtChk = DATACHECK.CRC;
+                }
+                else
+                {
+                    dtChk = DATACHECK.Null;
+                }
+
                 byte[] arr = null;
                 try
                 {
-                    arr = StrToHexByte(str);
+                    arr = StrToHexByte(str, _hasHead, _hasTail, chkLen.Checked, chkLenCheck.Checked, dtChk);
+                    str = byteToHexStr(arr);
+                    if (rdoCRC.Checked)
+                    {
+                        txtCRC.Text = arrCRC[0].ToString("X2") + arrCRC[1].ToString("X2");
+                    }
                 }
                 catch (Exception)
                 {
@@ -362,7 +368,7 @@ namespace ExMod
             }
             if (bShowSend)
             {
-                txtSend.AppendText(str + "\r\n");
+                txtSend.AppendText(str + Environment.NewLine);
                 txtSend.ScrollToCaret();
             }
         }
@@ -372,7 +378,7 @@ namespace ExMod
         /// </summary>
         /// <param name="HexStr"></param>
         /// <returns></returns>
-        private byte[] StrToHexByte(string HexStr, bool hasHead = false, bool hasTail = false, bool hasLen = false,bool hasLenCheck = false, DATACHECK chk = DATACHECK.Null)
+        private byte[] StrToHexByte(string HexStr, bool hasHead = false, bool hasTail = false, bool hasLen = false, bool hasLenCheck = false, DATACHECK chk = DATACHECK.Null)
         {
             HexStr = HexStr.Replace(" ", "");
             if (HexStr.Length % 2 != 0)
@@ -384,11 +390,10 @@ namespace ExMod
 
             int ckSum = 0;
             byte[] arrChk1 = new byte[1];
-            byte[] arrChk2 = new byte[2];
             for (int i = 0; i < nLen; i++)
             {
                 arrData[i] = Convert.ToByte(HexStr.Substring(2 * i, 2), 16);
-                ckSum +=  arrData[i];
+                ckSum += arrData[i];
             }
             byte[] arr = new byte[] { };
             if (hasLen)
@@ -405,13 +410,13 @@ namespace ExMod
             {
                 if (hasLenCheck) //CRC校验包括数据长度字节
                 {
-                    arrChk2 = BytesCheck.GetCRC16(arr, true);
+                    arrCRC = BytesCheck.GetCRC16(arr, true);
                 }
                 else
                 {
-                    arrChk2 = BytesCheck.GetCRC16(arrData, true);
+                    arrCRC = BytesCheck.GetCRC16(arrData, true);
                 }
-                arr = arr.Concat(arrChk2).ToArray();
+                arr = arr.Concat(arrCRC).ToArray();
             }
             if (chk == DATACHECK.Sum)
             {
